@@ -1,0 +1,42 @@
+{
+  "name": "autoincrementlog",
+  "displayName": "AutoIncrementLog",
+  "description": "AutoIncrementLog automatically increments numbers in console.log() when pasted, making debugging easier.",
+  "publisher": "RahulThummar", 
+  "icon": "./AutoIncrementLog.png",
+  "version": "0.0.4",
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": ["onCommand:autoincrementlog.AutoIncrementLog"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [{
+      "command": "autoincrementlog.AutoIncrementLog",
+      "title": "Auto Increment Log"
+    }],
+    "keybindings": [
+      {
+        "command": "autoincrementlog.AutoIncrementLog",
+        "key": "ctrl+v",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.97.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "eslint": "^9.19.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
