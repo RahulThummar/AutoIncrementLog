@@ -34,11 +34,13 @@ function activate(context) {
 
       // Insert or replace the content in the editor
       editor.edit((editBuilder) => {
-        if (editor.selection.isEmpty) {
-          editBuilder.insert(editor.selection.active, modifiedContent);
-        } else {
-          editBuilder.replace(editor.selection, modifiedContent);
-        }
+        editor.selections.forEach((selection) => {
+          if (selection.isEmpty) {
+            editBuilder.insert(selection.active, modifiedContent);
+          } else {
+            editBuilder.replace(selection, modifiedContent);
+          }
+        });
       });
     }
   );
